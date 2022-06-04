@@ -10,3 +10,9 @@ Procedures:
 3/ Styling with proper UI/UX design
 
 
+4/ Remove 'Delete All Records' button from Corporate Brief Tab or Tab 1
+ - Button and functionality was removed from 'mvp31_mainUIClass_Version2.py'
+
+5/ Remove 'Delete Selected Record' from Output Table on Tab2
+
+

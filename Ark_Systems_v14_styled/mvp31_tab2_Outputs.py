@@ -26,7 +26,7 @@ class Tab2(QWidget):
         header_column_width = self.table.horizontalHeader()
         header_column_width.setSectionResizeMode(QHeaderView.ResizeToContents)
         # self.table.setRowCount(5)
-        self.table.setColumnCount(91)
+        self.table.setColumnCount(90)
 
         self.table.setHorizontalHeaderLabels(['File No.', 'Company Name', 'Company Old Name', 'Registered No', 'Date of Name Change', 'Date of Incorporation',
         'Company Status', 'Registration Address', 'Business Address', 'Nature of Bussiness', 'Paid Up Capital', 'Member 1', 'No of Shares', 'Member 2', 'No of Shares',
@@ -54,8 +54,8 @@ class Tab2(QWidget):
         self.exportToCSVBtn = QPushButton("Export to Spreadsheet")
         self.exportToCSVBtn.clicked.connect(self.exportToCSVFunction)
 
-        self.deleteSelectedRecord = QPushButton("Delete Selected Record")
-        self.deleteSelectedRecord.clicked.connect(self.deleteRecord)
+        # self.deleteSelectedRecord = QPushButton("Delete Selected Record") # Removing 'Delete Selected Record' from Output Table / Tab2
+        # self.deleteSelectedRecord.clicked.connect(self.deleteRecord)
 
 
 
@@ -69,7 +69,7 @@ class Tab2(QWidget):
         self.buttonHLayout.addWidget(self.refreshRecordsBtn)
         self.buttonHLayout.addWidget(self.deepViewUpdateBtn)
         self.buttonHLayout.addWidget(self.exportToCSVBtn)
-        self.buttonHLayout.addWidget(self.deleteSelectedRecord)
+        # self.buttonHLayout.addWidget(self.deleteSelectedRecord) # Removing 'Delete Selected Record' from Output Table / Tab2
         self.mainLayoutTab2.addLayout(self.tableLayout)
         self.mainLayoutTab2.addLayout(self.buttonHLayout)
 
@@ -97,31 +97,33 @@ class Tab2(QWidget):
         except:
             pass
 
-    def deleteRecord(self):
-        # customMessage("Record Deleted")
-        try:
+# removing functionality for 'Delete Single Record' from Data Output Table / Tab2
 
-            self.selectedRow = self.table.currentRow()
-
-
-            self.field1 = self.table.item(self.selectedRow, 0).text()
-            self.field2 = self.table.item(self.selectedRow, 1).text()
-
-            self.databaseName = 'mvp31'
-            self.databaseName = f'{self.databaseName}.db'
-            self.tableName = 'MVP31'
-
-            self.conn = sqlite3.connect(self.databaseName)
-            self.c = self.conn.cursor()
-            self.c.execute(f"""DELETE FROM {self.tableName} WHERE FileNo = '{self.field1}' """)
-
-            self.conn.commit()
-            self.table.removeRow(self.selectedRow)
-
-            customMessage(f"Deleted {self.field1},{self.field2}")
-
-        except:
-            print('Please select the record you would like to delete')
+    # def deleteRecord(self):
+    #     # customMessage("Record Deleted")
+    #     try:
+    #
+    #         self.selectedRow = self.table.currentRow()
+    #
+    #
+    #         self.field1 = self.table.item(self.selectedRow, 0).text()
+    #         self.field2 = self.table.item(self.selectedRow, 1).text()
+    #
+    #         self.databaseName = 'mvp31'
+    #         self.databaseName = f'{self.databaseName}.db'
+    #         self.tableName = 'MVP31'
+    #
+    #         self.conn = sqlite3.connect(self.databaseName)
+    #         self.c = self.conn.cursor()
+    #         self.c.execute(f"""DELETE FROM {self.tableName} WHERE FileNo = '{self.field1}' """)
+    #
+    #         self.conn.commit()
+    #         self.table.removeRow(self.selectedRow)
+    #
+    #         customMessage(f"Deleted {self.field1},{self.field2}")
+    #
+    #     except:
+    #         print('Please select the record you would like to delete')
 
     def loadData(self):
 

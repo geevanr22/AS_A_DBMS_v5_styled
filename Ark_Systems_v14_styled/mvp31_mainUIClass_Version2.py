@@ -11,19 +11,32 @@ class MainUI(QWidget):
     def __init__(self):
         super().__init__()
 
-
         self.uiSetup2()
 
         # self.typeRadioButtonGetSelection()
+
+
 
 
     def uiSetup2(self):
         # File No
         # Horizontal Layout 1
 
+        self.setStyleSheet("""
+            QLabel#test {
+                background: #53a8b6;
+            }
+            QPushButton#submit {
+                background-color: #2772db;
+                color: white;
+                font-weight: bold;
+            }
+
+        """)
+
         self.widget = QWidget()
         self.horizontalLayout_1 = QHBoxLayout()
-        self.label_fileNo = QLabel('File No')
+        self.label_fileNo = QLabel('File No', objectName= 'test')
         self.horizontalLayout_1.addWidget(self.label_fileNo)
         self.lineEdit_3_FileNo = QLineEdit()
         self.horizontalLayout_1.addWidget(self.lineEdit_3_FileNo)
@@ -43,6 +56,8 @@ class MainUI(QWidget):
 
         self.lineEdit_regNo = QLineEdit()
         self.horizontalLayout_1.addWidget(self.lineEdit_regNo)
+
+
 
         # Horizontal Line 2 Date of Change ############################################################################################################
 
@@ -242,14 +257,14 @@ class MainUI(QWidget):
         # Final Horizontal Layout has 3 Sub Vertical Layouts within
 
         # Secretaries 1 ----------------------------------------------------------------------
-        self.labelSecretaries_1_Name = QLabel('Secretaries 1:')
+        self.labelSecretaries_1_Name = QLabel('Company Secretary (CoSEC) 1:')
         self.lineEditSecretariesName_1 = QLineEdit()
         # self.labelSecretaries_2_Name = QLabel('Secretaries 2:')
         # self.lineEditSecretariesName_2 = QLineEdit()
 
-        self.labelAppointedDate_Secretary_1 = QLabel('Appointed Date')
-        self.labelResignedDate_Secretary_1 = QLabel('Resigned Date')
-        self.labelVacatedDate_Secretary_1 = QLabel('Vacated Date')
+        self.labelAppointedDate_Secretary_1 = QLabel('(CoSEC) 1: Appointed Date')
+        self.labelResignedDate_Secretary_1 = QLabel('(CoSEC) 1: Resigned Date')
+        self.labelVacatedDate_Secretary_1 = QLabel('(CoSEC) 1: Vacated Date')
 
         self.dateEditAppointedDate_Secretary_1 = QDateEdit()
         self.dateEditAppointedDate_Secretary_1.setDisplayFormat("d-MMM-yyyy")
@@ -273,12 +288,12 @@ class MainUI(QWidget):
 
 
         # Secretaries 2 ----------------------------------------------------------------------
-        self.labelSecretaries_2_Name = QLabel('Secretaries 2:')
+        self.labelSecretaries_2_Name = QLabel('Company Secretary (CoSEC) 2:')
         self.lineEditSecretariesName_2 = QLineEdit()
 
-        self.labelAppointedDate_Secretary_2 = QLabel('Appointed Date')
-        self.labelResignedDate_Secretary_2 = QLabel('Resigned Date')
-        self.labelVacatedDate_Secretary_2 = QLabel('Vacated Date')
+        self.labelAppointedDate_Secretary_2 = QLabel('(CoSEC) 2: Appointed Date')
+        self.labelResignedDate_Secretary_2 = QLabel('(CoSEC) 2: Resigned Date')
+        self.labelVacatedDate_Secretary_2 = QLabel('(CoSEC) 2: Vacated Date')
 
         self.dateEditAppointedDate_Secretary_2 = QDateEdit()
         self.dateEditAppointedDate_Secretary_2.setDisplayFormat("d-MMM-yyyy")
@@ -310,9 +325,9 @@ class MainUI(QWidget):
 
 
         # Final Horizontal Line
-        self.labelPreparedBy = QLabel('Prepared By')
-        self.labelScannedBy = QLabel('Scanned By')
-        self.labelCheckedBy = QLabel('Checked By')
+        self.labelPreparedBy = QLabel('Current Project Prepared By:')
+        self.labelScannedBy = QLabel('Current Project Scanned By:')
+        self.labelCheckedBy = QLabel('Current Project Checked By:')
 
         self.verticalLayout11_Prepared = QVBoxLayout()
         self.verticalLayout11_Prepared.addWidget(self.labelPreparedBy)
@@ -367,10 +382,10 @@ class MainUI(QWidget):
 
         # Buttons cased in an Horizontal Layout
         self.buttonHorizontal = QHBoxLayout()
-        self.buttonSubmitRecord = QPushButton('Submit Record')
+        self.buttonSubmitRecord = QPushButton('Submit Record', objectName='submit')
         self.buttonHorizontal.addWidget(self.buttonSubmitRecord)
-        self.buttonDeleteAllRecords = QPushButton('Delete All Records')
-        self.buttonHorizontal.addWidget(self.buttonDeleteAllRecords)
+        # self.buttonDeleteAllRecords = QPushButton('Delete All Records') # Removing 'Delete All Records' button from Corporate Brief / Tab1
+        # self.buttonHorizontal.addWidget(self.buttonDeleteAllRecords)
         self.buttonOpenFilingSystem = QPushButton('Open Filing System')
         self.buttonHorizontal.addWidget(self.buttonOpenFilingSystem)
 
@@ -404,7 +419,7 @@ class MainUI(QWidget):
         # Submit Record Button Functionality
         self.buttonSubmitRecord.clicked.connect(self.submitRecordsButton)
         self.buttonOpenFilingSystem.clicked.connect(self.openFilingSystemButton)
-        self.buttonDeleteAllRecords.clicked.connect(self.deleteAllRecords)
+        # self.buttonDeleteAllRecords.clicked.connect(self.deleteAllRecords) # removing this button's functionality
 
 
 

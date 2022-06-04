@@ -18,7 +18,7 @@ class DeepViewUpdateWindow(QWidget): # Name here has been changed to MainWindow2
         super().__init__()
 
 
-        self.setWindowTitle('MVP31_DeepView')
+        self.setWindowTitle('Ark Systems File Manager Update Console')
         self.setGeometry(700, 70, 1130, 900)
         self.setMaximumWidth(1130)
         flag = Qt.WindowMinMaxButtonsHint

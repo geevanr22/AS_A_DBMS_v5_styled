@@ -17,7 +17,7 @@ class MainWindow(QDialog):
         super().__init__()
 
         # self.show()
-        self.setWindowTitle('AS & Associates ARK DBMS v12')
+        self.setWindowTitle('AS & Associates Ark Systems File Manager 1.0')
         self.setGeometry(200, 0, 800, 600)
         flag = Qt.WindowMinMaxButtonsHint
         self.setWindowFlag(flag)
